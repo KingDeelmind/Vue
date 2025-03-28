@@ -1,0 +1,50 @@
+<template>
+  <div class="home-container">
+    <h1>Welcome to the Online Store</h1>
+    <div class="auth-buttons">
+      <router-link to="/login" class="auth-button">Login</router-link>
+      <router-link to="/register" class="auth-button">Register</router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'OldHome'
+}
+</script>
+
+<style scoped>
+.home-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #f0f8ff;
+}
+
+.home-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #4CAF50;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.auth-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.auth-button:hover {
+  background-color: #45a049;
+}
+</style> 
